@@ -1,0 +1,61 @@
+
+
+.home{
+    border: 1px solid lightgray;
+    margin-top: 65px;
+}
+.job-container{
+    /* border: 1px solid lightgray; */
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.jobdetails{
+    /* border: 1px solid lightgray; */
+    width: 30%;
+    margin: 20px;
+}
+.jobdetails>*{
+    /* border: 1px solid lightgray; */
+    text-align: left;
+    margin-left: 10px;
+}
+.apply-div{
+    /* border: 1px solid gray; */
+    width: 30%;
+    margin: 20px;
+    background-color: blue;
+    cursor: pointer;
+}
+.apply-div>div{
+    /* border: 1px solid gray; */
+    margin-top: 25%;
+    color: white;
+    font-weight: 700;
+}
+.view-div{
+    /* border: 1px solid gray; */
+    width: 30%;
+    margin: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.view-div-1{
+    /* border: 1px solid gray; */
+    height: 150px;
+    background-color: blue;
+    color: white;
+    line-height: 150px
+}
+.view-div-2{
+    /* border: 1px solid gray; */
+    height: 60px;
+    background-color: darkred;
+    color: white;
+    line-height: 60px
+}

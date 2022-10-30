@@ -1,0 +1,21 @@
+
+.addjobs{
+    /* border: 1px solid red; */
+    margin-top: 75px;
+}
+
+.job-form-div{
+    /* border: 1px solid red; */
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.job-form-div>*{
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

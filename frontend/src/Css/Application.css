@@ -1,0 +1,28 @@
+.application-div{
+    border: 1px solid gray;
+    width: 40%;
+    margin: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+}
+.shortlist{
+    /* border: 1px solid gray; */
+    background-color: green;
+    color: white;
+    width : 50%;
+    line-height: 200px;
+}
+.reject{
+    /* border: 1px solid gray; */
+    background-color: darkred;
+    color: white;
+    width: 50%;
+    line-height: 200px;
+}
+#applied{
+    background-color: blue;
+}
+#shortlited{
+    background-color: green;
+}
