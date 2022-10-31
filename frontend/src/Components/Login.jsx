@@ -3,11 +3,14 @@ import "../Css/Login.css";
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react";
 import axios from "axios";
+import { login } from "../Redux/auth/action";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Login=()=>{
   
-  const navigate = useNavigate()
-  const [form,setform] = useState({
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const [form,setform] = useState({
         email:"",
         password:""
       });
@@ -25,18 +28,24 @@ export const Login=()=>{
         e.preventDefault();
         console.log(form)
 
-        axios.post("http://localhost:7000/api/login", form)
-            .then((res) => {
-                console.log(res)
-                localStorage.setItem("token",res.data.token)
-                localStorage.setItem("type",res.data.type)  
-                localStorage.setItem("email",res.data.email) 
-                localStorage.setItem("name",res.data.name) 
-                // navigate("/",{replace:true});
-            }).catch((err) => {
-                console.log(err)
-                alert("Fill all the detail correctly")
-        })
+        if (form.email !== "" || form.password!== "") {
+            dispatch(login(form));
+          }else{
+            alert("fill all the details")
+          }
+
+        // axios.post("http://localhost:7000/api/login", form)
+        //     .then((res) => {
+        //         console.log(res)
+        //         localStorage.setItem("token",res.data.token)
+        //         localStorage.setItem("type",res.data.type)  
+        //         localStorage.setItem("email",res.data.email) 
+        //         localStorage.setItem("name",res.data.name) 
+        //         // navigate("/",{replace:true});
+        //     }).catch((err) => {
+        //         console.log(err)
+        //         alert("Fill all the detail correctly")
+        // })
       }
      
 

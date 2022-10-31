@@ -4,11 +4,13 @@ import { useState } from "react";
 import { Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../Redux/auth/action";
 
 export const Register = () => {
 
     const navigate = useNavigate();
-    
+    const dispatch = useDispatch()
     const [form,setform]=useState({
       name :"",
       email:"",
@@ -28,18 +30,24 @@ export const Register = () => {
     }
 
 
-    async function handleSubmit(e) {
-    e.preventDefault();
-    console.log(form)
+    const handleSubmit =(e)=> {
+        e.preventDefault();
+        console.log(form)
+        
+        if(form.name!=="" && form.email!=="" && form.password!=="" && form.education!=="" && form.skill!=="" && form.type!==""){
+            dispatch(register(form));
+        } else {
+            alert("fill all the details")
+        }
     
-        axios.post("http://localhost:7000/api/register", form)
-            .then((res) => {
-            console.log(res)
-            navigate("/login")
-            }).catch((err) => {
-            console.log(err)
-            alert("Fill all the detail correctly")
-        })
+        // axios.post("http://localhost:7000/api/register", form)
+        //     .then((res) => {
+        //     console.log(res)
+        //     navigate("/login")
+        //     }).catch((err) => {
+        //     console.log(err)
+        //     alert("Fill all the detail correctly")
+        // })
     } 
 
     
