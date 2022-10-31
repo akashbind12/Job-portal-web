@@ -7,11 +7,14 @@ const jwtAuth = require("../middleware/jwtAuth");
 
 //Router
 router.post("/register", async (req, res) => {
+    console.log(req.body)
     try {
         const newuser = new User({
                 name : req.body.name,
                 email: req.body.email,
                 password:CryptoJS.AES.encrypt(req.body.password,"CRYPTO_SECRET_KEY").toString(),
+                education : req.body.education,
+                skill : req.body.skill,
                 type: req.body.type
         })
         // console.log(newuser)

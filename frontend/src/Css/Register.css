@@ -1,0 +1,452 @@
+/* .Body{ 
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+} */
+.create-account{
+    /* border: 1px solid red; */
+    margin: 50px;
+}
+.header {
+    margin-bottom: 2%;
+    padding: 0% 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;     
+    height: 70px;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    left: 0;
+    right:0;
+    top:0; 
+    z-index: 999;   
+}      
+.subs {
+    display: inline-block;
+}        
+.subs a {
+    font-size: 1.6em;
+    font-weight: bolder;
+    text-decoration: none;
+    color: black;
+}      
+.header a:hover {
+    color: #e4b961;
+}        
+.logo {
+    text-align: center;
+}        
+.bimg {
+    height: 45px;
+    width: auto;
+}        
+.nav_icons {
+    text-align: right;
+}
+.nav_icons a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}        
+.nav_icons i {
+    margin: 0px 15px;
+    font-size: 1.2em;
+    color: black;
+}        
+.nav_icons i:hover {
+    color: #e4b961;
+}        
+.dropdown {
+    position: relative;
+    display: inline-block;
+}        
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    min-width: 150px;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}        
+.dropdown-content a {  
+    display: block;      
+    padding: 3%;
+    font-size: 0.8em;
+    margin-right: 5px;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+    text-align: left;
+}
+.m_show
+{
+    display: none;
+}
+.offcanvas-body a
+{
+    text-decoration: none;
+    color: black;
+}
+.m_hide div
+{
+    display: inline-block;
+}
+
+.containersignup {
+    width: 40%;
+    margin: auto;
+    margin-top: 80px;
+}
+.containersignup p{
+    font-size: xx-large;
+    text-align: center;
+    font-family: sans-serif;
+}
+.containersignup form{
+    width: 99%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+form>div{
+    margin: 4% 0%;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: sans-serif;
+}
+form>input,select{
+    padding: 10px;
+    border-radius: 5px;
+    border:2px solid whitesmoke;
+}
+.Facebook{
+    display: flex;
+    justify-content: space-between;
+    background-color: #3b5998;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    border-radius: 5px;
+}
+.Google{
+    display: flex;
+    justify-content: space-between;
+    background-color: #dd2a39;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+}
+.containersignup button{
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    font-family: 'Montserrat', sans-serif;
+    background-color:#e5b95f;
+    cursor: pointer;
+}
+.SU{
+    width: 100%;
+}
+.SI{
+    width: 99%;
+}
+.submitsignup{
+    width: 100%;
+    padding: 4%;
+    background-color: #e5b95f;
+    font-size: medium;
+    border: 0;
+    cursor: pointer;
+}
+.submitsignin{
+    width: 100%;
+    padding: 4%;
+    font-size: medium;
+    background-color: #e5b95f;
+    border: 0;
+    cursor: pointer;
+}
+
+.Sbl1{
+    width: 15%;
+    text-align: center;
+    padding: 5% 0 ;
+    background-color: .5574be;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.Sbl2{
+    width: 15%;
+    text-align: center;
+    padding: 5% 0 ;
+    background-color: #fc2638;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.NM{
+    margin: 5%;
+}
+.NMBlock{
+    display: flex;
+}
+.NMBlock > div:nth-child(2){
+    color: red;
+}
+.submitsignin:hover{
+    background-color: black;
+    color: white;
+}
+.submitsignup:hover{
+    background-color: black;
+    color: white;
+}
+.Facebook:hover{
+    background-color: rgb(189, 210, 253);
+}
+.Sbl1:hover{
+    background-color: rgb(189, 210, 253);
+}
+.Google:hover{
+    background-color: rgb(247, 173, 192);
+}
+.Sbl2:hover{
+    background-color: rgb(247, 173, 192);
+}
+@media only screen and (min-width:321px) and (max-width:720px){
+.containersignup{
+    width: 65%;
+    margin: auto;
+    /* border: 1px solid red; */
+}
+.containersignup p{
+    font-size: xx-large;
+    text-align: center;
+    font-family: sans-serif;
+}
+.containersignup form{
+    width: 99%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+form>div{
+    margin: 4% 0%;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: sans-serif;
+}
+form>input{
+    padding: 10px;
+    border-radius: 5px;
+    border:2px solid whitesmoke;
+}
+.Facebook{
+    display: flex;
+    justify-content: space-between;
+    background-color: .3b5998;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    border-radius: 5px;
+}
+.Google{
+    display: flex;
+    justify-content: space-between;
+    background-color: #dd2a39;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+}
+.containersignup button{
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e5b95f;
+}
+.SU{
+    width: 100%;
+}
+.SI{
+    width: 99%;
+}
+.submitsignup{
+    width: 100%;
+    padding: 4%;
+    background-color: #e5b95f;
+    font-size: medium;
+    border: 0;
+}
+.submitsignin{
+    width: 100%;
+    padding: 4%;
+    font-size: medium;
+    background-color:#e5b95f;
+    border: 0;
+}
+.Sbl1{
+    width: 15%;
+    text-align: center;
+    padding: 5% 0 ;
+    background-color: #5574be;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.Sbl2{
+    width: 15%;
+    text-align: center;
+    padding: 5% 0 ;
+    background-color: #fc2638;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.NM{
+    margin: 5%;
+}
+.NMBlock{
+    display: flex;
+}
+.NMBlock > div:nth-child(2){
+    color: red;
+}
+.submitsignin:hover{
+    background-color: black;
+    color: white;
+}
+.submitsignup:hover{
+    background-color: black;
+    color: white;
+}
+.facebook:hover{
+background-color: rgb(189, 210, 253);
+}
+.Sbl1:hover{
+background-color: rgb(189, 210, 253);
+}
+.google:hover{
+background-color: rgb(247, 173, 192);
+}
+.Sbl2:hover{
+background-color: rgb(247, 173, 192);
+}
+}
+@media only screen and (min-width:0px) and (max-width:320px){
+.containersignup{
+width: 100%;
+margin: auto;
+}
+.containersignup p{
+font-size: x-large;
+text-align: center;
+font-family: sans-serif;
+}
+.containersignup form{
+width: 99%;
+margin: auto;
+display: flex;
+flex-direction: column;
+}
+form>div{
+margin: 4% 0%;
+font-size: 15px;
+border-radius: 5px;
+font-family: sans-serif;
+}
+form>input{
+padding: 10px;
+border-radius: 5px;
+border:2px solid whitesmoke;
+}
+.Facebook{
+display: flex;
+justify-content: space-between;
+background-color: #3b5998;
+margin: 0;
+font-family: 'Montserrat', sans-serif;
+color: white;
+border-radius: 5px;
+}
+.Google{
+display: flex;
+justify-content: space-between;
+background-color: #dd2a39;
+color: white;
+font-family: 'Montserrat', sans-serif;
+border-radius: 5px;
+}
+.containersignup button{
+padding: 10px;
+border-radius: 5px;
+border: 0px;
+font-family: 'Montserrat', sans-serif;
+background-color: #e5b95f;
+}
+.SU{
+width: 100%;
+}
+.SI{
+width: 99%;
+height: 300px;
+}
+.submitsignup{
+width: 100%;
+padding: 4%;
+background-color: #e5b95f;
+font-size: medium;
+border: 0;
+}
+.submitsignin{
+width: 100%;
+padding: 4%;
+font-size: medium;
+background-color: #e5b95f;
+border: 0;
+}
+.Sbl1{
+width: 15%;
+text-align: center;
+padding: 5% 0 ;
+background-color: .5574be;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+}
+.Sbl2{
+width: 15%;
+text-align: center;
+padding: 5% 0 ;
+background-color: #fc2638;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+}
+.NM{
+margin: 5%;
+}
+.NMBlock{
+display: flex;
+}
+.NMBlock > div:nth-child(2){
+color: red;
+}
+.submitsignin:hover{
+background-color: black;
+color: white;
+}
+.submitsignup:hover{
+background-color: black;
+color: white;
+}
+.facebook:hover{
+background-color: rgb(189, 210, 253);
+}
+.Sbl1:hover{
+background-color: rgb(189, 210, 253);
+}
+.google:hover{
+background-color: rgb(247, 173, 192);
+}
+.Sbl2:hover{
+background-color: rgb(247, 173, 192);
+}
+}

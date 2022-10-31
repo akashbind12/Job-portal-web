@@ -1,0 +1,135 @@
+
+.Logincontainer{
+    /* border: 1px solid red; */
+    width: 40%;
+    margin:90px auto;
+    
+}
+.loginhead{
+    font-size: xx-large;
+    text-align: center;
+    font-family: sans-serif;
+    margin-bottom: 50px;
+    /* border: 1px solid red; */
+}
+form{
+      /* border: 1px solid red; */
+    width: 99%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+form>div{
+    margin: 4% 0%;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: sans-serif;
+}
+form>input{
+    padding: 10px;
+    border-radius: 5px;
+    border:2px solid whitesmoke;
+}
+.facebook{
+    display: flex;
+    justify-content: space-between;
+    background-color: #3b5998;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    border-radius: 5px;
+}
+.google{
+    display: flex;
+    justify-content: space-between;
+    background-color: #dd2a39;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+}
+button{
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e5b95f;
+}
+.SU{
+    width: 100%;
+}
+.SI{
+    width: 99%;
+}
+.submitsignup{
+    width: 100%;
+    padding: 4%;
+    background-color: #e5b95f;
+    font-size: medium;
+    border: 0;
+}
+.submitsignin{
+    width: 100%;
+    padding: 4%;
+    font-size: medium;
+    background-color: #e5b95f;
+    border: none;
+}
+.Sbl1{
+    width: 15%;
+    text-align: center;
+    padding: 5% 0 ;
+    background-color: #5574be;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.Sbl2{
+    width: 15%;
+    text-align: center;
+    padding: 5% 0 ;
+    background-color: #fc2638;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.NM{
+    margin: 5%;
+}
+.NMBlock{
+    display: flex;
+}
+.NMBlock > div:nth-child(2){
+    color: red;
+}
+.submitsignin:hover{
+    background-color: black;
+    color: white;
+}
+.submitsignup:hover{
+    background-color: black;
+    color: white
+}
+.facebook:hover{
+    opacity: 0.8;
+}
+.Sbl1:hover{
+    background-color: rgb(189, 210, 253);
+}
+.google:hover{
+    opacity: 0.8;
+}
+.Sbl2:hover{
+    background-color: rgb(247, 173, 192);
+}
+.RnF > div:nth-child(1){
+    color: red;
+}
+.RnF{
+    display: flex;
+    justify-content: space-between;
+}
+hr{
+border: none;
+color: #333;
+overflow: visible;
+text-align: center;
+height: 5px;
+}

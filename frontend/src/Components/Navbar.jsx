@@ -14,6 +14,7 @@ export default function Navbar() {
 
 
   const [userType, setUserType] = useState("recuiter")
+  const [auth, setAuth] = useState(true)
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -52,9 +53,15 @@ export default function Navbar() {
                 ADD JOBS
               </Button>
               </Link> : null }
-              <Button  sx={{ color: '#fff' }}>
-                LOGOUT
-              </Button>
+            {auth ? null : <Button sx={{ color: '#fff' }}>
+              LOGOUT
+            </Button>}
+             {auth ?  <Link to="/login" style={{ textDecoration: 'none' }} ><Button sx={{ color: '#fff' }}>
+              LOGIN
+             </Button></Link> : null}
+             {auth ?  <Link to="/register" style={{ textDecoration: 'none' }} ><Button  sx={{ color: '#fff' }}>
+                Register
+              </Button></Link> : null }
           </Box>
         </Toolbar>
       </AppBar>
