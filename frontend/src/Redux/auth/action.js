@@ -3,7 +3,7 @@ export const actionTypes = {
   AUTH_LOADING: "AUTH_LOADING",
   AUTH_SUCCESS: "AUTH_SUCCESS",
   AUTH_FAILURE: "AUTH_FAILURE",
-  AUTH_STATUS:"AUTH_STATUS"
+  AUTH_REGISTER: "AUTH_REGISTER",
 };
 
 // REGISTER ACTION
@@ -14,7 +14,7 @@ export const register_loading = () => {
 };
 export const register_success = () => {
   return {
-    type: actionTypes.AUTH_STATUS,
+    type: actionTypes.AUTH_REGISTER,
   };
 };
 export const register_failure = () => {
@@ -49,7 +49,7 @@ export const login_failure = () => {
 export const register = (data) => async (dispatch) => {
     dispatch(register_loading());
     try {
-        const res = await axios.post("http://localhost:7000/api/register", data);
+        let res = await axios.post("http://localhost:7000/api/register", data);
         console.log(res.data)
         dispatch(register_success())
     } catch (error) {
@@ -75,7 +75,7 @@ export const login = (data) => async (dispatch) => {
     try {
       const res = await axios.post("http://localhost:7000/api/login", data);
       console.log(res.data)
-      dispatch(login_success(res.data));
+       dispatch(login_success(res.data));
     } catch (error) {
        dispatch(login_failure());
     }

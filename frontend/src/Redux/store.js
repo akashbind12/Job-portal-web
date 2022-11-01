@@ -1,12 +1,27 @@
-import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
-import { authReducer } from "./auth/reducer";
-// import {photoReducer} from "./photo/reducer";
+import { applyMiddleware, combineReducers, legacy_createStore,compose } from "redux";
 import thunk from "redux-thunk";
+import { authReducer } from "./auth/reducer";
 
 
 const rootReducer=combineReducers({
-    auth:authReducer,
-    // photos:photoReducer
+    userAuth:authReducer,
 })
 
-export const store=legacy_createStore(rootReducer,applyMiddleware(thunk))
+const composeEnhancers =
+    (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+    compose;
+
+const enhancer = composeEnhancers(applyMiddleware(thunk));
+
+    
+const store = legacy_createStore(rootReducer, enhancer)
+
+
+
+
+store.subscribe(() => {
+    console.log("Subscribe", store.getState());
+});
+
+
+export default store

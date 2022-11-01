@@ -1,16 +1,16 @@
 
 import "../Css/Register.css"
 import { useState } from "react";
-import { Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../Redux/auth/action";
+import { useEffect } from "react";
 
 export const Register = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
+    const user = useSelector((store) => store.userAuth);
     const [form,setform]=useState({
       name :"",
       email:"",
@@ -39,16 +39,13 @@ export const Register = () => {
         } else {
             alert("fill all the details")
         }
-    
-        // axios.post("http://localhost:7000/api/register", form)
-        //     .then((res) => {
-        //     console.log(res)
-        //     navigate("/login")
-        //     }).catch((err) => {
-        //     console.log(err)
-        //     alert("Fill all the detail correctly")
-        // })
     } 
+
+    useEffect(()=>{
+        if(user.register){
+          navigate("/login")
+        }
+      },[user])
 
     
     return (

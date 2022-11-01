@@ -1,13 +1,12 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 
 export default function Navbar() {
@@ -15,19 +14,16 @@ export default function Navbar() {
 
   const [userType, setUserType] = useState("recuiter")
   const [auth, setAuth] = useState(true)
+  const user = useSelector((store) => store.userAuth);
+
+  const handleLogout = () => {
+    
+  }
 
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav">
         <Toolbar>
-          {/* <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            sx={{ mr: 4, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton> */}
           <Typography
             variant="h6"
             component="div"
@@ -36,19 +32,19 @@ export default function Navbar() {
             JOB PORTAL
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-             <Link to="/" style={{ textDecoration: 'none' }}>
-              <Button  sx={{ color: '#fff' }}>
+             {user.auth && <Link to="/" style={{ textDecoration: 'none' }}>
+              <Button sx={{ color: '#fff' }}>
                 Home
-              </Button></Link>
-              {userType ? 
-             <Link to="/myjobs" style={{ textDecoration: 'none' }}><Button  sx={{ color: '#fff' }}>
+              </Button></Link>}
+              { user.type=="recuiter" ? 
+               user.auth && <Link to="/myjobs" style={{ textDecoration: 'none' }}><Button  sx={{ color: '#fff' }}>
                 MY JOBS
-              </Button></Link>
+              </Button></Link> 
               :  
-              <Button  sx={{ color: '#fff' }}>
+               user.auth && <Button  sx={{ color: '#fff' }}>
                 MY APPLICATIONS
               </Button> }
-              {userType ? <Link to="/addjobs" style={{ textDecoration: 'none' }}>
+              {user.auth && user.type=="recuiter" ? <Link to="/addjobs" style={{ textDecoration: 'none' }}>
                 <Button  sx={{ color: '#fff' }}>
                 ADD JOBS
               </Button>
@@ -56,12 +52,15 @@ export default function Navbar() {
             {auth ? null : <Button sx={{ color: '#fff' }}>
               LOGOUT
             </Button>}
-             {auth ?  <Link to="/login" style={{ textDecoration: 'none' }} ><Button sx={{ color: '#fff' }}>
+             {!user.auth && <Link to="/login" style={{ textDecoration: 'none' }} ><Button sx={{ color: '#fff' }}>
               LOGIN
-             </Button></Link> : null}
-             {auth ?  <Link to="/register" style={{ textDecoration: 'none' }} ><Button  sx={{ color: '#fff' }}>
+             </Button></Link>}
+             {!user.auth && <Link to="/register" style={{ textDecoration: 'none' }} ><Button  sx={{ color: '#fff' }}>
                 Register
-              </Button></Link> : null }
+            </Button></Link>}
+            {user.auth && <Button  sx={{ color: '#fff' }} onClick={handleLogout} >
+                LOGOUT
+             </Button>}
           </Box>
         </Toolbar>
       </AppBar>

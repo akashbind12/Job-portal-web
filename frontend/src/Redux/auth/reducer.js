@@ -3,8 +3,9 @@ import { actionTypes } from "./action";
 export const initialState = {
     isLoading:false,
     isError:false,
-    status:false,
-    data: [],
+    register: false,
+    auth : localStorage.getItem("auth") || false,
+    data: JSON.parse(localStorage.getItem("data")) || [],
 }
 
 export const authReducer=(state=initialState,{type,payload})=>{
@@ -18,13 +19,15 @@ export const authReducer=(state=initialState,{type,payload})=>{
             }
         }
         case actionTypes.AUTH_SUCCESS:{
-            // localStorage.setItem("data", JSON.stringify(payload));
+            localStorage.setItem("data", JSON.stringify(payload));
+            localStorage.setItem("auth", true);
             console.log(payload)
             return{
                 ...state,
                 isLoading:false,
                 isError:false,
-                data:payload
+                data: payload,
+                auth : true,
             }
         }
         case actionTypes.AUTH_FAILURE:{
@@ -34,10 +37,11 @@ export const authReducer=(state=initialState,{type,payload})=>{
                 isError:true,
             }
         }
-        case actionTypes.AUTH_STATUS:{
+        case actionTypes.AUTH_REGISTER:{
             return{
                 ...state,
-                status:true
+                isLoading:false,
+                register: true,
             }
         }
         default:{

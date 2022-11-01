@@ -2,7 +2,7 @@ import "../Css/Login.css";
 
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import { login } from "../Redux/auth/action";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,6 +10,7 @@ export const Login=()=>{
   
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const user = useSelector((store) => store.userAuth);
     const [form,setform] = useState({
         email:"",
         password:""
@@ -22,7 +23,7 @@ export const Login=()=>{
             [id]:value
         })
     console.log(form)
-}
+    }
    
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,22 +34,15 @@ export const Login=()=>{
           }else{
             alert("fill all the details")
           }
+    }
+    
+    useEffect(()=>{
+        if (user.auth) {
+            navigate("/");
+          }
+      },[user])
 
-        // axios.post("http://localhost:7000/api/login", form)
-        //     .then((res) => {
-        //         console.log(res)
-        //         localStorage.setItem("token",res.data.token)
-        //         localStorage.setItem("type",res.data.type)  
-        //         localStorage.setItem("email",res.data.email) 
-        //         localStorage.setItem("name",res.data.name) 
-        //         // navigate("/",{replace:true});
-        //     }).catch((err) => {
-        //         console.log(err)
-        //         alert("Fill all the detail correctly")
-        // })
-      }
      
-
     return (
         <div>
             <div className="Logincontainer">
