@@ -19,9 +19,7 @@ export const authReducer=(state=initialState,{type,payload})=>{
             }
         }
         case actionTypes.AUTH_SUCCESS:{
-            localStorage.setItem("data", JSON.stringify(payload));
-            localStorage.setItem("auth", true);
-            console.log(payload)
+
             return{
                 ...state,
                 isLoading:false,
@@ -42,6 +40,13 @@ export const authReducer=(state=initialState,{type,payload})=>{
                 ...state,
                 isLoading:false,
                 register: true,
+            }
+        }
+        case actionTypes.AUTH_LOGOUT:{
+            return{
+                ...state,
+                data: [],
+                auth : false,
             }
         }
         default:{

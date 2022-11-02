@@ -9,6 +9,7 @@ import { Myjobs } from './Components/Myjobs'
 import { Application } from './Components/Application'
 import { Register } from './Components/Register'
 import { Login } from './Components/Login'
+import Logout from './Components/Logout'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
         <Route path="/applications" element={<Application />}  ></Route>
         <Route path="/register" element={<Register />}  ></Route>
         <Route path="/login" element={<Login />}  ></Route>
+        <Route path="/logout" element={<Logout />}  ></Route>
       </Routes>
     </div>
   )

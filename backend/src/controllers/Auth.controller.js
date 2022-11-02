@@ -7,7 +7,7 @@ const jwtAuth = require("../middleware/jwtAuth");
 
 //Router
 router.post("/register", async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     try {
         const newuser = new User({
                 name : req.body.name,
@@ -17,9 +17,10 @@ router.post("/register", async (req, res) => {
                 skill : req.body.skill,
                 type: req.body.type
         })
-        // console.log(newuser)
+        console.log("newuser :",newuser)
 
-        const saveduser= await newuser.save();
+        const saveduser = await newuser.save();
+        console.log("saveduser :",saveduser )
         return res.status(200).json(saveduser)
     } catch (error) {
         return res.status(500).json(error)

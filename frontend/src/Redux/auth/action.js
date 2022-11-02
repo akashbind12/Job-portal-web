@@ -4,6 +4,7 @@ export const actionTypes = {
   AUTH_SUCCESS: "AUTH_SUCCESS",
   AUTH_FAILURE: "AUTH_FAILURE",
   AUTH_REGISTER: "AUTH_REGISTER",
+  AUTH_LOGOUT: " AUTH_LOGOUT",
 };
 
 // REGISTER ACTION
@@ -43,6 +44,13 @@ export const login_failure = () => {
   };
 };
 
+/// action logout
+export const logout_success = () => {
+  return {
+    type: actionTypes.AUTH_LOGOUT,
+  };
+};
+
 
 // REGISTER
 
@@ -53,19 +61,11 @@ export const register = (data) => async (dispatch) => {
         console.log(res.data)
         dispatch(register_success())
     } catch (error) {
+      console.log(error)
+       alert("something went wrong")
        dispatch(register_failure());
     }
   };
-
-
-// axios.post("http://localhost:7000/api/register", form)
-        //     .then((res) => {
-        //     console.log(res)
-        //     navigate("/login")
-        //     }).catch((err) => {
-        //     console.log(err)
-        //     alert("Fill all the detail correctly")
-        // })
 
 
 //   LOGIN
@@ -75,22 +75,21 @@ export const login = (data) => async (dispatch) => {
     try {
       const res = await axios.post("http://localhost:7000/api/login", data);
       console.log(res.data)
+      localStorage.setItem("data", JSON.stringify(res.data));
+      localStorage.setItem("auth", true);
        dispatch(login_success(res.data));
     } catch (error) {
        dispatch(login_failure());
+       alert("wrong details")
     }
 };
-  
 
-// axios.post("http://localhost:7000/api/login", form)
-        //     .then((res) => {
-        //         console.log(res)
-        //         localStorage.setItem("token",res.data.token)
-        //         localStorage.setItem("type",res.data.type)  
-        //         localStorage.setItem("email",res.data.email) 
-        //         localStorage.setItem("name",res.data.name) 
-        //         // navigate("/",{replace:true});
-        //     }).catch((err) => {
-        //         console.log(err)
-        //         alert("Fill all the detail correctly")
-        // })
+
+export const logout = ()  => async (dispatch)  => {
+      localStorage.removeItem("data");
+      localStorage.removeItem("auth")
+      // localStorage.removeItem("mytime");
+      console.log("logout succefully")
+      dispatch(logout_success())
+};
+  

@@ -87,7 +87,7 @@ export const Register = () => {
                 </div>
                 <select onChange={handleChange}  name="type" id="type">
                 <option value="-----">-----</option>
-                    <option value="recuiter">Recuiter</option>
+                    <option value="recruiter">Recruiter</option>
                     <option value="applicant">Applicant</option>
                 </select>
                 
