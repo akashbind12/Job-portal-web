@@ -47,11 +47,6 @@ router.post("/login",async(req,res)=>{
         
         //generating jwt token
         const token=jwt.sign({id:user._id},"jwt_secret_key")
-        
-        res.cookie("access_token", token, {
-            maxAge: 60 * 60 * 24 * 30 * 1000,
-            httpOnly : true
-        } )
 
         return res.status(200).json({
             token: token,
@@ -60,8 +55,6 @@ router.post("/login",async(req,res)=>{
             type: user.type,
           })
           
-        
-
     } catch (error) {
       return res.status(500).json(error)  
     }

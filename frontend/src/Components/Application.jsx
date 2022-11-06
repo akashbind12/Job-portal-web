@@ -3,17 +3,18 @@ import "../Css/Home.css"
 import "../Css/Application.css"
 import { Link } from "react-router-dom";
 import { useState } from 'react';
+import { useSelector } from "react-redux";
 
 export const Application = () => {
 
-    
-    const [userType, setUserType] = useState("recuiter")
+    const user = useSelector((store) => store.userAuth);
 
+    
 
     return (
         <>
-        {userType=="recuiter" ?
-          ////////////////////Recuiter/////////////////////////////////////////
+        { user.data.type === "recruiter" ?
+        //   -----------------Recuiter-----------------
         <div className="home">
             <h1>Applications</h1>
             <div className="job-container">
@@ -44,7 +45,7 @@ export const Application = () => {
             </div>
         </div>
         :
-        ////////////////////apppplicant/////////////////////////////////////////
+        //  ---------------------------apppplicant---------------------
         <div className="home">
             <div className="job-container">
                 <div className="jobdetails">

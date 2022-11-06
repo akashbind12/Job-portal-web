@@ -1,8 +1,25 @@
 
+import axios from "axios"
+import { useEffect } from "react"
 import "../Css/Home.css"
 
 export const Home = () => {
 
+    useEffect(() => {
+        getData()
+    })
+
+    const getData = () => {
+        let userData = JSON.parse(localStorage.getItem("data"))
+        let token = userData.token;
+        console.log(token)
+        axios.get(`http://localhost:7000/jobs`, { headers: { Authorization: `Bearer ${token}`} })
+        .then((res) => {
+             console.log(res)
+        }).catch((err) => console.log(err))
+    }
+
+    
     return (
         <div className="home">
             <div className="job-container">

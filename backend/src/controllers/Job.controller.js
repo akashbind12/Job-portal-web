@@ -65,7 +65,7 @@ router.get("/", jwtAuth, async (req, res) => {
 
         return res.status(200).send(jobs)
     } catch (err) {
-        return res.status(200).send({ err: err })
+        return res.status(404).send({ err: err })
     }
 });
 

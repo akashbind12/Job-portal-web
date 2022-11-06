@@ -3,9 +3,19 @@ const User = require("../models/User.model")
 
 //authorization  middleware
 const jwtAuth = (req, res, next) => {
-  const token = req.cookies.access_token;
+  const bearerHeader = req.headers["authorization"]
+  let token;
+  if (typeof bearerHeader !== "undefined") {
+    const bearer = bearerHeader.split(" ");
+    const bearerToken = bearer[1];
+    token = bearerToken
+  } else {
+    return res.sendStatus(403)
+  }
+  // const token = req.cookies.access_token;
+  console.log(token)
   if (!token) {
-    return res.sendStatus(403);
+    return res.sendStatus(403).json("token is not valid");
   }
     try {
     //verifying jwt token
@@ -21,7 +31,7 @@ const jwtAuth = (req, res, next) => {
         return next();
       });        
     } catch(err) {
-      return res.status(403).json({err : err});
+      return res.status(403).json({ err: err });
     }
 }
 
